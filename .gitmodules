@@ -1,3 +1,6 @@
 [submodule "demos/FLUX-GITOPS/fleet-infra"]
 	path = demos/FLUX-GITOPS/fleet-infra
 	url = git@github.com:cakepietoast/fleet-infra.git
+[submodule "resources/flask-mongodb-example"]
+	path = resources/flask-mongodb-example
+	url = git@github.com:cakepietoast/flask-mongodb-example.git

@@ -1,4 +1,4 @@
-Creates an Atlas cluster and a flask app which connects to it. 
+Creates an Atlas cluster and a flask app which connects to it. Uses ./resources/flask-app-demo
 
 
 # REQs
@@ -18,5 +18,8 @@ https://fluxcd.io/flux/get-started/
 Run a k8s cluster with kind (kind create cluster)
 
 Watch for changes: flux get kustomizations --watch
+
+Add a document in the test.messages collection in the created db: `{"message": "hello world"}`
+
 
 Suspend atlas: flux suspend kustomization infrastructure
