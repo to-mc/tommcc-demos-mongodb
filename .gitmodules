@@ -1,0 +1,3 @@
+[submodule "demos/FLUX-GITOPS/fleet-infra"]
+	path = demos/FLUX-GITOPS/fleet-infra
+	url = git@github.com:cakepietoast/fleet-infra.git
