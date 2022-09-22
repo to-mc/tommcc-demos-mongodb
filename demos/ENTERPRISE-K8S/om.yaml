@@ -1,0 +1,68 @@
+---
+apiVersion: mongodb.com/v1
+kind: MongoDBOpsManager
+metadata:
+
+  name: om-tommcc
+
+spec:
+
+  replicas: 1
+  jvmParameters: ["-Xms2064m", "-Xmx2064m"] # 2.5M is a good size for docker-desktop -- comment out for larger clusters in production
+  version: 6.0.3
+  adminCredentials: admin-user-credentials
+  backup:
+    enabled: false
+  statefulSet:
+    spec:
+      template:
+        metadata:
+          annotations:
+            key1: value1
+        spec:
+          containers:
+            - name: mongodb-ops-manager
+              resources:
+                limits:
+                  cpu: "1.0"  # "2.0"
+                  memory: 3Gi  # 3Gi a good size for docker-desktop - use 5Gi or more for larger clusters in production
+  externalConnectivity:
+    type: LoadBalancer
+
+
+  applicationDatabase:
+    members: 3
+    version: 5.0.9-ent
+    podSpec:
+      # cpu: "0.25"
+      # memory: 500Mi # 4Gi
+      persistence:
+        single:
+          storage: 2Gi # 5Gi
+      podTemplate:
+        spec:
+          containers:
+            - name: mongod
+              resources:
+                limits:
+                  cpu: "0.5"
+                  memory: 400Mi
+                requests:
+                  cpu: "0.5"
+                  memory: 400Mi
+            - name: mongodb-agent
+              resources:
+                limits:
+                  cpu: "0.5"
+                  memory: 200Mi
+                requests:
+                  cpu: "0.2"
+                  memory: 100Mi
+            - name: mongodb-agent-monitoring
+              resources:
+                limits:
+                  cpu: "0.15"
+                  memory: 100Mi
+                requests:
+                  cpu: "0.1"
+                  memory: 75Mi

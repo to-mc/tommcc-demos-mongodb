@@ -1,0 +1,17 @@
+{
+  "name": "csfle",
+  "version": "1.0.0",
+  "description": "From this directory:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^4.10.0",
+    "mongodb-client-encryption": "^2.2.1",
+    "node-gyp": "^9.1.0"
+  }
+}

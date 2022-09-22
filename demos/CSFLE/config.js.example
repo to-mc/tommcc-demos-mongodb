@@ -1,0 +1,4 @@
+module.exports = {
+    connectionString: `mongodb+srv://${process.env.ATLAS_USER}:${process.env.ATLAS_PASS}@${process.env.ATLAS_CLUSTER_HOSTNAME}/`, // change to your MongoDB Atlas Cluster URI if you are not using localhost
+    dataKey: "REPLACEME",
+}

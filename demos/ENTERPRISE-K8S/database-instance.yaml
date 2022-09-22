@@ -1,0 +1,21 @@
+---
+apiVersion: mongodb.com/v1
+kind: MongoDB
+metadata:
+
+  name: db-created-with-operator
+
+spec:
+
+  version: "6.0.1-ent"
+
+  opsManager:
+    configMapRef:
+      name: my-project
+
+
+  credentials: om-credentials
+
+  type: ReplicaSet
+  members: 3
+  persistent: true
