@@ -35,10 +35,10 @@ async function main() {
   }
 
   const regularClientPatientsColl = regularClient
-    .db("medicalRecords")
+    .db("CSFLE-DEMO")
     .collection("patients")
   const csfleClientPatientsColl = csfleClient
-    .db("medicalRecords")
+    .db("CSFLE-DEMO")
     .collection("patients")
 
   // Performs the insert operation with the csfle-enabled client

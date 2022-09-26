@@ -130,7 +130,7 @@ module.exports = {
         )
       }
       return {
-        "medicalRecords.patients": {
+        "CSFLE-DEMO.patients": {
           bsonType: "object",
           // specify the encryptMetadata key at the root level of the JSON Schema.
           // As a result, all encrypted fields defined in the properties field of the

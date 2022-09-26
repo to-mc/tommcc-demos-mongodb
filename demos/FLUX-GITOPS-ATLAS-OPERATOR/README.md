@@ -4,6 +4,7 @@ Creates an Atlas cluster and a flask app which connects to it. Uses ./resources/
 # REQs
 
 - k8s cluster (kind works)
+  - Set context in kubectl: `k config use-context kind-kind` && `k config set-context --current --namespace=default`
 
 
 # BOOTSTRAP
