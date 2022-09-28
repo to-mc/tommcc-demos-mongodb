@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-cm-project
+  namespace: mongodb
+data:
+  projectName: "tommcc k8s Project"
+  baseUrl: https://cloud.mongodb.com
+  orgId: "6331b01b8a180008c5574e27"

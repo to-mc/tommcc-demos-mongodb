@@ -1,35 +1,14 @@
----
-apiVersion: mongodb.com/v1
-kind: MongoDB
-metadata:
-  name: prod-db-om
-spec:
-  version: "6.0.1-ent"
-  opsManager:
-    configMapRef:
-      name: my-project
-  credentials: om-credentials
-  type: ReplicaSet
-  members: 3
-  persistent: true
-  security:
-    authentication:
-      enabled : true
-      modes: ["SCRAM"]
-  backup:
-    mode: enabled
----
 apiVersion: mongodb.com/v1
 kind: MongoDBUser
 metadata:
- name: prod-database-user
+ name: my-database-user
 spec:
   mongodbResourceRef:
-    name: prod-db-om
+    name: prod-db-cm
   username: prod-user
   db: "admin"
   passwordSecretKeyRef:
-    name: prod-db-user-password
+    name: cm-prod-db-user-password
     key: password
   roles:
     - db: "admin"
@@ -44,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: prod-db-user-password
+  name: cm-prod-db-user-password
 type: Opaque
 stringData:
   password: prod-password

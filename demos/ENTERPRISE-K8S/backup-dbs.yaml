@@ -1,0 +1,96 @@
+---
+apiVersion: mongodb.com/v1
+kind: MongoDB
+metadata:
+  name: opsmanager-blockstore
+spec:
+  version: "6.0.1-ent"
+  opsManager:
+    configMapRef:
+      name: backup-project-blockstore
+  credentials: om-credentials
+  type: ReplicaSet
+  members: 3
+  persistent: true
+  security:
+    authentication:
+      enabled : true
+      modes: ["SCRAM"]
+---
+apiVersion: mongodb.com/v1
+kind: MongoDB
+metadata:
+  name: opsmanager-oplog
+spec:
+  version: "6.0.1-ent"
+  opsManager:
+    configMapRef:
+      name: backup-project-oplog
+  credentials: om-credentials
+  type: ReplicaSet
+  members: 3
+  persistent: true
+  security:
+    authentication:
+      enabled : true
+      modes: ["SCRAM"]
+---
+apiVersion: mongodb.com/v1
+kind: MongoDBUser
+metadata:
+ name: dbadmin-opsmanager-oplog
+spec:
+  mongodbResourceRef:
+    name:  opsmanager-oplog
+  username: oploguser
+  db: "admin"
+  passwordSecretKeyRef:
+    name: oplog-user-password
+    key: password
+  roles:
+    - db: "admin"
+      name: "clusterAdmin"
+    - db: "admin"
+      name: "userAdminAnyDatabase"
+    - db: "admin"
+      name: "readWriteAnyDatabase"
+    - db: "admin"
+      name: "userAdminAnyDatabase"
+---
+apiVersion: mongodb.com/v1
+kind: MongoDBUser
+metadata:
+ name: dbadmin-opsmanager-blockstore
+spec:
+  mongodbResourceRef:
+    name: opsmanager-blockstore
+  username: blockstoreuser
+  db: "admin"
+  passwordSecretKeyRef:
+    name: blockstore-user-password
+    key: password
+  roles:
+    - db: "admin"
+      name: "clusterAdmin"
+    - db: "admin"
+      name: "userAdminAnyDatabase"
+    - db: "admin"
+      name: "readWriteAnyDatabase"
+    - db: "admin"
+      name: "userAdminAnyDatabase"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: oplog-user-password
+type: Opaque
+stringData:
+  password: oplog-user-password
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: blockstore-user-password
+type: Opaque
+stringData:
+  password: blockstore-user-password

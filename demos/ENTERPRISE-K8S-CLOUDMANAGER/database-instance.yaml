@@ -1,0 +1,18 @@
+---
+apiVersion: mongodb.com/v1
+kind: MongoDB
+metadata:
+  name: prod-db-cm
+spec:
+  version: "6.0.1-ent"
+  opsManager:
+    configMapRef:
+      name: my-cm-project
+  credentials: cm-credentials
+  type: ReplicaSet
+  members: 3
+  persistent: true
+  security:
+    authentication:
+      enabled : true
+      modes: ["SCRAM"]

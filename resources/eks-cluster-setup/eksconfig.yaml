@@ -1,0 +1,32 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: tommcc-cluster
+  region: eu-north-1
+  tags:
+    owner: tom.mccarthy@mongodb.com
+    expire-on: "2022-10-01"
+    expires-on: "2022-10-01"
+    purpose: "training"
+
+vpc:
+  clusterEndpoints: 
+    publicAccess: true
+  subnets:
+    public:
+      eu-north-1a: { id: subnet-0e858860a48876ca9 }
+      eu-north-1b: { id: subnet-05278b36d2c015e88 }
+
+nodeGroups:
+  - name: ng-1-workers
+    labels: { role: workers }
+    instanceType: t3.large
+    desiredCapacity: 4
+    minSize: 3
+    maxSize: 4
+    tags:
+      owner: tom.mccarthy@mongodb.com
+      expire-on: "2022-10-01"
+      expires-on: "2022-10-01"
+      purpose: "training"

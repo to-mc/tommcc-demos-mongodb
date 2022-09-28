@@ -4,5 +4,27 @@ metadata:
   name: my-project
   namespace: mongodb
 data:
-  projectName: "tommcc k8s Project"
+  projectName: "k8s prod cluster"
   baseUrl: http://om-tommcc-svc.mongodb.svc.cluster.local:8080
+  orgId: 6334a565753cbd758942afbc
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backup-project-oplog
+  namespace: mongodb
+data:
+  projectName: "k8s backup oplog"
+  baseUrl: http://om-tommcc-svc.mongodb.svc.cluster.local:8080
+  orgId: 6334a565753cbd758942afbc
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backup-project-blockstore
+  namespace: mongodb
+data:
+  projectName: "k8s backup blockstore"
+  baseUrl: http://om-tommcc-svc.mongodb.svc.cluster.local:8080
+  orgId: 6334a565753cbd758942afbc
+---
