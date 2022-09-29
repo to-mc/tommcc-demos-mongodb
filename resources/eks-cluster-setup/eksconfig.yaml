@@ -22,7 +22,7 @@ nodeGroups:
   - name: ng-1-workers
     labels: { role: workers }
     instanceType: t3.large
-    desiredCapacity: 4
+    desiredCapacity: 3
     minSize: 3
     maxSize: 4
     tags:
