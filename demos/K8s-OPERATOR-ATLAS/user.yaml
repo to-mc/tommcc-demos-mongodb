@@ -1,0 +1,30 @@
+apiVersion: atlas.mongodb.com/v1
+kind: AtlasDatabaseUser
+metadata:
+ name: atlas-database-user
+ namespace: mongodb
+ labels: 
+  atlas.mongodb.com/type: credentials
+spec:
+  roles:
+  - roleName: readWriteAnyDatabase
+    databaseName: admin
+  projectRef:
+    name: tommcc-k8s-atlas-project
+  username: atlasuser
+  passwordSecretRef:
+    name: atlas-user-password
+  scopes:
+    - type: CLUSTER
+      name: k8s-cluster
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: atlas-user-password
+  namespace: mongodb
+  labels:
+    atlas.mongodb.com/type: credentials
+type: Opaque
+stringData:
+  password: atlas-user-password

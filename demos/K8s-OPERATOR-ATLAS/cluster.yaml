@@ -1,0 +1,17 @@
+apiVersion: atlas.mongodb.com/v1
+kind: AtlasDeployment
+metadata:
+  name: tommcc-atlas-deployment
+  namespace: mongodb
+spec:
+  projectRef:
+    name: tommcc-k8s-atlas-project
+  deploymentSpec:
+    name: k8s-cluster
+    providerSettings:
+      instanceSizeName: M10
+      providerName: AWS
+      regionName: EU_NORTH_1
+    providerBackupEnabled: true
+    pitEnabled: true
+    mongoDBMajorVersion: "6.0"

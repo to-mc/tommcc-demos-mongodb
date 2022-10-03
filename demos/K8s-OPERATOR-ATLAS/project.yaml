@@ -1,0 +1,13 @@
+apiVersion: atlas.mongodb.com/v1
+kind: AtlasProject
+metadata:
+  name: tommcc-k8s-atlas-project
+  namespace: mongodb
+spec:
+  name: TOM MCCARTHY DEMO PROJECT
+  projectIpAccessList:
+    - ipAddress: "195.178.190.212"
+      comment: "office STO"
+    - ipAddress: "13.51.174.41"
+    - ipAddress: "13.49.145.13"
+    - ipAddress: "13.51.207.224"

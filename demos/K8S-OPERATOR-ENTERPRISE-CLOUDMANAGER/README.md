@@ -2,10 +2,7 @@
 
 ## Create cluster in AWS
 
-1. Login to AWS `aws sso login --profile SA`
-2. Create eks cluster in AWS with 3x t3.large `eksctl --profile SA create cluster -f ../../resources/eks-cluster-setup/eksconfig.yaml`
-3. Set up kubectl config: `eksctl --profile SA utils write-kubeconfig --cluster=tommcc-cluster`. 
-4. If session times out (kubectl commands fail), refresh it with `aws sso login --profile SA`.
+1. Create EKS cluster using `../../resources/eks-cluster-setup/README.md`
 
 ---
 
@@ -22,5 +19,16 @@ create secret generic cm-credentials \
 
 ---
 
-1.  Connect to pod `kubectl --namespace mongodb exec -it mongosh -- bash`
-2.  Connect to the server using the k8s service eg: `mongosh "mongodb+srv://prod-db-cm-svc.mongodb.svc.cluster.local/?tls=false&ssl=false" --username prod-user`
+## Optional
+
+### Connect with mongosh
+1. Connect to mongosh pod: `kubectl exec -n mongodb --stdin --tty mongosh-cm -- /bin/bash`
+2. Connect from pod to mongodb: `mongosh "$CONNECTIONSTRING&tls=False"`
+
+
+### Load sample dataset
+1. `git clone https://github.com/cakepietoast/mongodb-sample-dataset.git && cd mongodb-sample-dataset`
+2. `bash script.sh "mongodb+srv://prod-db-om-svc.mongodb.svc.cluster.local/?tls=false&ssl=false" prod-user prod-password`
+
+### Deploy sample app
+1.  Deploy the flask app: `kubectl apply -f ../../resources/flask-mongodb-example/ -n mongodb`

@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongosh-cm
+spec:
+  containers:
+  - name: mongosh
+    image: rtsp/mongosh:latest
+    env:
+    - name: "CONNECTIONSTRING"
+      valueFrom:
+        secretKeyRef:
+          name: prod-db-cm-my-database-user-admin
+          key: connectionString.standardSrv

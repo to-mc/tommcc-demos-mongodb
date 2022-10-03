@@ -19,14 +19,17 @@ vpc:
       eu-north-1b: { id: subnet-05278b36d2c015e88 }
 
 nodeGroups:
-  - name: ng-1-workers
+  - name: nodegroup-1
     labels: { role: workers }
-    instanceType: t3.large
+    instanceType: m5.large
     desiredCapacity: 3
     minSize: 3
     maxSize: 4
+    preBootstrapCommands:
+      - "echo vm.max_map_count=1677720 >> /etc/sysctl.conf"
+      - "sysctl -w vm.max_map_count=1677720"
     tags:
       owner: tom.mccarthy@mongodb.com
-      expire-on: "2022-10-01"
-      expires-on: "2022-10-01"
+      expire-on: "2022-10-30"
+      expires-on: "2022-10-30"
       purpose: "training"

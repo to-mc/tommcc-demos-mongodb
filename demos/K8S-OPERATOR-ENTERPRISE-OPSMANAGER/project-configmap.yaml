@@ -6,7 +6,7 @@ metadata:
 data:
   projectName: "k8s prod cluster"
   baseUrl: http://om-tommcc-svc.mongodb.svc.cluster.local:8080
-  orgId: 6334a565753cbd758942afbc
+  orgId: 63359c266584402fe14a5ecb
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -16,7 +16,7 @@ metadata:
 data:
   projectName: "k8s backup oplog"
   baseUrl: http://om-tommcc-svc.mongodb.svc.cluster.local:8080
-  orgId: 6334a565753cbd758942afbc
+  orgId: 63359c266584402fe14a5ecb
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -26,5 +26,5 @@ metadata:
 data:
   projectName: "k8s backup blockstore"
   baseUrl: http://om-tommcc-svc.mongodb.svc.cluster.local:8080
-  orgId: 6334a565753cbd758942afbc
+  orgId: 63359c266584402fe14a5ecb
 ---
