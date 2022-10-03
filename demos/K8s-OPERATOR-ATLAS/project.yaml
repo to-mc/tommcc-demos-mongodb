@@ -8,6 +8,5 @@ spec:
   projectIpAccessList:
     - ipAddress: "195.178.190.212"
       comment: "office STO"
-    - ipAddress: "13.51.174.41"
-    - ipAddress: "13.49.145.13"
-    - ipAddress: "13.51.207.224"
+    - ipAddress: "212.116.91.97"
+      comment: "home"
