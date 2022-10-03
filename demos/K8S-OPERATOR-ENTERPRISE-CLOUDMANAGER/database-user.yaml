@@ -19,11 +19,4 @@ spec:
       name: "readWriteAnyDatabase"
     - db: "admin"
       name: "userAdminAnyDatabase"
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cm-prod-db-user-password
-type: Opaque
-stringData:
-  password: prod-password
+

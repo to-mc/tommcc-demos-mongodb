@@ -17,14 +17,3 @@ spec:
   scopes:
     - type: CLUSTER
       name: k8s-cluster
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: atlas-user-password
-  namespace: mongodb
-  labels:
-    atlas.mongodb.com/type: credentials
-type: Opaque
-stringData:
-  password: atlas-user-password

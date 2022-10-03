@@ -78,19 +78,3 @@ spec:
       name: "readWriteAnyDatabase"
     - db: "admin"
       name: "userAdminAnyDatabase"
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: oplog-user-password
-type: Opaque
-stringData:
-  password: oplog-user-password
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: blockstore-user-password
-type: Opaque
-stringData:
-  password: blockstore-user-password
