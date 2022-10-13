@@ -1,0 +1,5 @@
+{
+    "name": "TM_ATLAS_PROJECT_ID",
+    "from_secret": true,
+    "value": "AtlasProjectId"
+  }

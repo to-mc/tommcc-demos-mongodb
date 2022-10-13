@@ -1,0 +1,9 @@
+{
+    "type": "SCHEDULED",
+    "name": "complianceChecker",
+    "function_name": "complianceChecker",
+    "config": {
+      "schedule": "0 * * * *"
+    },
+    "disabled": false
+ }

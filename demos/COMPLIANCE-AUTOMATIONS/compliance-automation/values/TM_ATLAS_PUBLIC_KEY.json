@@ -1,0 +1,5 @@
+{
+    "name": "TM_ATLAS_PUBLIC_KEY",
+    "from_secret": true,
+    "value": "AtlasPublicKey"
+  }
