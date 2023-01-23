@@ -1,0 +1,16 @@
+{
+    "name": "monitoring_load_app",
+    "version": "1.0.0",
+    "description": "Scripts to configure sample environments for monitoring MongoDB usage",
+    "main": "workloadGenerator.js",
+    "scripts": {
+      "test": "node workloadGenerator.js"
+    },
+    "author": "Matt Grogan",
+    "license": "ISC",
+    "dependencies": {
+      "cluster": "^0.7.7",
+      "faker": "^4.1.0",
+      "mongodb": "^4.1.13"
+    }
+  }

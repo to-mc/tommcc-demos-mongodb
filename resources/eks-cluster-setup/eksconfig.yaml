@@ -3,6 +3,7 @@ kind: ClusterConfig
 
 metadata:
   name: tommcc-cluster
+  version: 1.22
   region: eu-north-1
   tags:
     owner: tom.mccarthy@mongodb.com
@@ -11,7 +12,7 @@ metadata:
     purpose: "training"
 
 vpc:
-  clusterEndpoints: 
+  clusterEndpoints:
     publicAccess: true
   subnets:
     public:

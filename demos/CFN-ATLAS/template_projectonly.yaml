@@ -1,0 +1,28 @@
+Description: >
+  Atlas project
+Parameters:
+  PublicKey:
+    Description: "Your MongoDB Cloud Public API Key"
+    Type: String
+    Default: "PublicKey"
+  PrivateKey:
+    Description: "Your MongoDB Cloud Private API Key"
+    Type: String
+    Default: "PrivateKey"
+  OrgId:
+    Description: "Your MongoDB Cloud Organization Id"
+    Type: String
+    Default: "OrgId"
+  ProjectName:
+    Description: "The name of the project."
+    Type: String
+    Default: "cfn-created-project"
+Resources:
+  AtlasProject:
+    Type: MongoDB::Atlas::Project
+    Properties:
+      OrgId: !Ref "OrgId"
+      ApiKeys:
+        PublicKey: !Ref "PublicKey"
+        PrivateKey: !Ref "PrivateKey"
+      Name: !Ref "ProjectName"

@@ -174,3 +174,5 @@ master-key.txt
 demos/CSFLE/config.js
 dataKeyId.txt
 launch.json
+
+.DS_STORE

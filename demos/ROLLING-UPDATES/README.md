@@ -1,0 +1,1 @@
+Start read.py first, then write.py, then upgrade cluster and compare hashes. Demonstrates nothing is lost or corrupted during the process.

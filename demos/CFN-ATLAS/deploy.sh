@@ -1,0 +1,1 @@
+aws cloudformation deploy --template-file template.yaml --parameter-overrides PublicKey=${TM_ATLAS_PUBLIC_KEY_CFN} PrivateKey=${TM_ATLAS_PRIVATE_KEY_CFN} OrgId=${TM_ATLAS_ORG_ID} ClusterRegion=eu-north-1 DatabaseUserPassword=LKagjh825! --stack-name testcluster
