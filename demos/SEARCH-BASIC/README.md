@@ -10,7 +10,7 @@
     "dynamic": false,
     "fields": {
       "_id": {
-        "type": "ObjectId"
+        "type": "objectId"
       },
       "directors": {
         "type": "stringFacet"
